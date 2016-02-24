@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
@@ -22,6 +23,8 @@ public class MyView extends View {
     private TextPaint mTextPaint;
     private float mTextWidth;
     private float mTextHeight;
+    private int lastX;
+    private int lastY;
 
     public MyView(Context context) {
         super(context);
@@ -166,6 +169,28 @@ public class MyView extends View {
     public void setExampleDimension(float exampleDimension) {
         mExampleDimension = exampleDimension;
         invalidateTextPaintAndMeasurements();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int) event.getX();
+        int y = (int) event.getY();
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                //记录触摸点
+                lastX = x;
+                lastY = y;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                //偏移量
+                int offsetX = x - lastX;
+                int offsetY = y - lastY;
+                //在当前基础上加上偏移量
+                layout(getLeft() + offsetX, getTop() + offsetY, getRight() + offsetX, getBottom() + offsetY);
+                break;
+
+        }
+        return true;
     }
 
     /**
