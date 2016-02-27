@@ -30,7 +30,7 @@ public class CyView extends View {
     }
 
     private void initView() {
-        setBackgroundColor(Color.BLUE);
+        setBackgroundColor(Color.YELLOW);
     }
 
     @Override
