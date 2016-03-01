@@ -55,6 +55,11 @@ public class CyView extends View {
 
     float mTitleTextSize;
 
+    Button mLeftButton, mRightButton;
+    TextView mTitleView;
+
+    LayoutParams mLeftParams, mTitlepParams, mRightParams;
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int x = (int) event.getX();
