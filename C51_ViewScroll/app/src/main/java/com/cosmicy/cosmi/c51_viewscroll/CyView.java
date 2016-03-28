@@ -33,7 +33,7 @@ public class CyView extends View {
     }
 
     private void initView() {
-        setBackgroundColor(Color.YELLOW);
+        setBackgroundColor(Color.CYAN);
     }
 
     private void init(Context context, AttributeSet attrs) {
@@ -55,10 +55,10 @@ public class CyView extends View {
 
     float mTitleTextSize;
 
-    Button mLeftButton, mRightButton;
-    TextView mTitleView;
+    float mLeftButton, mRightButton;
+    float mTitleView;
 
-    LayoutParams mLeftParams, mTitlepParams, mRightParams;
+    float mLeftParams, mTitlepParams, mRightParams;
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
